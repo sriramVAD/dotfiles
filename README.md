@@ -10,3 +10,7 @@ i.e., chmod +x i3lock.sh
 ![Alt text](https://user-images.githubusercontent.com/31076260/73136232-9a14ca00-404b-11ea-8e5e-f9e20b97d72f.png "i3 desktop screenshot 2")
 
 ### Urxvt color scheme -> in /urxvt 
+
+
+## I3lock screenshot
+![Alt text](https://user-images.githubusercontent.com/31076260/74614699-70b2ff80-511a-11ea-9c7e-2ccf0c716c24.png "i3 lock screenshot")
