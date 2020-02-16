@@ -1,0 +1,11 @@
+let base16colorspace=256
+colorscheme onedark
+syntax on
+set t_Co=256
+set title
+set updatetime=40
+set number
+set t_Co=256
+set smartindent
+set tabstop=4
+set shiftwidth=4

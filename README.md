@@ -14,3 +14,11 @@ i.e., chmod +x i3lock.sh
 
 ## I3lock screenshot
 ![Alt text](https://user-images.githubusercontent.com/31076260/74614699-70b2ff80-511a-11ea-9c7e-2ccf0c716c24.png "i3 lock screenshot")
+
+### VIM
+Colorscheme used for vim is in the /vim directory, which is inspired by the atom's dark colorscheme. Just copy the file 'onedark.vim' to /usr/share/vim/vim82/colors/onedark.vimand in the vimrc file, (if not written yet), write:
+colorscheme onedark
+
+and it should be all good.
+
+Here's a screenshot:
