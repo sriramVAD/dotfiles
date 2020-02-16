@@ -20,5 +20,7 @@ Colorscheme used for vim is in the /vim directory, which is inspired by the atom
 colorscheme onedark
 
 and it should be all good.
+Additionally, original repository link : https://github.com/joshdick/onedark.vim
 
 Here's a screenshot:
+![Alt text](https://user-images.githubusercontent.com/31076260/74615006-09e31580-511d-11ea-8068-860ad0e30247.png "vim colorscheme")
