@@ -1,191 +1,88 @@
-;-------------------------------------------------------------------------------
-; COLORS                                                                       ;
-;-------------------------------------------------------------------------------
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+include-file = ~/.config/polybar/colors.ini
+include-file = ~/.config/polybar/modules.ini
+include-file = ~/.config/polybar/user_modules.ini
 
-[colors]
-background = "#aa1d1f21"
-foreground = "${xrdb:foreground}"
-primary = "${xrdb:color4}"
-alert = "${xrdb:color1}"
 
-;-------------------------------------------------------------------------------
-; TOP BAR                                                                      ;
-;-------------------------------------------------------------------------------
+[bar/main]
+bottom = false
 
-[bar/example]
-enable-ipc = true
-monitor = eDP1
-monitor-fallback = eDP-1
-;monitor = ${env:MONITOR:eDP-1}
-
+modules-left = i3 separator temperature cpu memory
+modules-center = date
+modules-right = network separator battery separator pulseaudio
 width = 100%
-height = 28
+height = 35
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+offset-x = 0%
+offset-y = 0%
 
-underline-color = ${colors.alert}
-underline-size = 3
-overline-color = ${colors.alert}
-overline-size = 3
+background = ${color.bg}
+
+overline-size = 2
+overline-color = ${color.purple}
 
 border-size = 0
+border-color = ${color.bg}
 
-border-color = ${colors.primary}
-
-padding-left = 4
-padding-right = 4
+padding = 1
 
 module-margin-left = 0
-module-margin-right = 6
+module-margin-right = 0
 
-modules-left = i3 xwindow
-modules-center = date
-modules-right = network backlight volume battery
+font-0 = "Source Code Pro SemiBold:size=10;3"
+font-1 = "Font Awesome 5 Free Regular:size=11;2"
+font-2 = "Font Awesome 5 Free Solid:size=11;3"
+font-3 = "Font Awesome 5 Free Regular:size=8;2"
+font-4 = "Font Awesome 5 Free Solid:size=8;2"
 
-font-0 = "Montserrat-Regular:pixelsize=11;4"
-font-1 = "Montserrat-Regular:size=11;4"
+monitor-strict = false
+override-redirect = true
+wm-restack = i3
+fixed-center = true
+enable-ipc = true
 
-;font-0 = "fixed:pixelsize=11;4"
-;font-1 = "FontAwesome:size=11;4"
-
-tray-position = none
-tray-padding = 4
-tray-maxsize = 0
-
-;-------------------------------------------------------------------------------
-; CALENDAR DATE                                                                ;
-;-------------------------------------------------------------------------------
-
-[module/date]
-type = internal/date
-interval = 1.0
-date = %A, %d %B
-time = %H:%M:%S
-
-date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
-
-label = %date% | %time%
-
-;-------------------------------------------------------------------------------
-; WORKSPACES                                                                   ;
-;-------------------------------------------------------------------------------
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-
-label-mode = %mode%
-
-label-focused = %index%
-label-focused-foreground = #ffffff
-
-label-unfocused = %index% 
-
-label-visible = %index%
-
-label-separator = .  
-label-separator-padding = 1
-label-separator-foreground = ${colors.background}
-
-;-------------------------------------------------------------------------------
-; WINDOW TITLE                                                                 ;
-;-------------------------------------------------------------------------------
-
-[module/xwindow]
-type = internal/xwindow
-label = "%title:0:30:...%"
-
-;-------------------------------------------------------------------------------
-; NETWORK INFO                                                                 ;
-;-------------------------------------------------------------------------------
-
-[module/network]
-type = internal/network
-interface = wlp2s0
-
-format-connected =  <label-connected>
-label-connected = "%essid%"
-
-format-disconnected = 
-format-disconnected-foreground = ${colors.alert}
-
-;-------------------------------------------------------------------------------
-; BATTERY STATUS                                                               ;
-;-------------------------------------------------------------------------------
-
-[module/battery]
-type = internal/battery
-
-battery = BAT0
-adapter = AC0
-
-poll-interval = 60
-
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-
-format-full = " <label-full>"
-
-label-charging = %percentage%%
-label-discharging = %percentage%%
-label-full = %percentage%%
-
-animation-charging-0 = ""
-animation-charging-1 = ""
-animation-charging-2 = ""
-animation-charging-3 = ""
-animation-charging-4 = ""
-animation-charging-framerate = 250
-
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-;animation-discharging-1 = ""
-;animation-discharging-0 = ""
+dim-value = 1
+monitor =
+monitor-fallback =
+separator = 
+spacing = 
+wm-name = 
+locale = 
+click-left = 
+click-middle = 
+click-right =
+scroll-up =
+scroll-down =
+double-click-left =
+double-click-middle =
+double-click-right =
+cursor-click = 
+cursor-scroll = 
 
 
-;-------------------------------------------------------------------------------
-; VOLUME STATUS                                                                ;
-;-------------------------------------------------------------------------------
+[settings]
+throttle-output = 5
+throttle-output-for = 10
 
-[module/volume]
-type = internal/pulseaudio
+throttle-input-for = 30
 
-format-volume = <ramp-volume> <label-volume>
-format-muted = <ramp-volume> <label-muted>
-format-muted-foreground = ${colors.alert}
+screenchange-reload = false
 
-label-volume = "%percentage%%"
-label-muted = "%percentage%%"
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
 
-bar-volume-width = 10
-bar-volume-indicator = |
-bar-volume-fill = ─
-bar-volume-empty = ─
+format-foreground = 
+format-background = 
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
 
-ramp-volume-0 = ""
-ramp-volume-1 = ""
-ramp-volume-2 = ""
-
-click-left = pulsemixer --toggle-mute
-scroll-up = pulsemixer --change-volume +1
-scroll-down = pulsemixer --change-volume -1
-
-interval = 5
-
-;-------------------------------------------------------------------------------
-; BACKLIGHT BRIGHTNESS                                                         ;
-;-------------------------------------------------------------------------------
-
-[module/backlight]
-type = internal/backlight
-
-format = <label>
-label = " %percentage%%"
-card = intel_backlight
-bar-width = 10
-bar-indicator = |
-bar-fill = ─
-bar-empty = ─
+pseudo-transparency = false
